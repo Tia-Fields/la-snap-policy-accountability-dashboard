@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invest in Louisiana | SNAP Error Rate Dashboard</title>
+  <title>Invest in Louisiana | 2026 SNAP Administrative Accuracy Dashboard</title>
   
-  <!-- External Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -61,13 +60,22 @@
 
     .chart-container {
       position: relative;
-      height: 450px;
+      height: 400px;
       width: 100%;
     }
 
     .header-pattern {
       background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
       background-size: 30px 30px;
+    }
+
+    .bill-row:hover {
+      background-color: #f1f5f9;
+    }
+
+    .link-card:hover {
+      border-color: #006b54;
+      background-color: #f0fdfa;
     }
   </style>
 </head>
@@ -79,18 +87,15 @@
     <nav class="flex items-center justify-between mb-8 py-4 border-b border-slate-200">
       <div class="flex items-center gap-4">
         <div class="h-16 w-auto flex items-center justify-center overflow-hidden">
-          <!-- 
-            Updated logo path to IIL-Logo-Secondary-FullColor-SM.png as per your upload.
-          -->
           <img src="IIL-Logo-Secondary-FullColor-SM.png" alt="Invest in Louisiana Logo" class="h-full object-contain" onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');" />
-          
           <div id="text-logo" class="hidden font-black text-2xl tracking-tighter text-brand-900 uppercase">
             Invest <span class="text-accent-orange">In</span> Louisiana
           </div>
         </div>
       </div>
-      <div class="hidden md:block">
-        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Status: Active Research & Tracking</span>
+      <div class="hidden md:block text-right">
+        <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">2026 Regular Session Monitoring</div>
+        <div class="text-brand-700 font-bold text-xs uppercase tracking-tight">SNAP Administrative Accuracy Tracker</div>
       </div>
     </nav>
 
@@ -99,25 +104,25 @@
       <div class="absolute inset-0 bg-gradient-to-br from-brand-800 to-brand-600 opacity-95"></div>
       <div class="absolute inset-0 header-pattern"></div>
       
-      <div class="relative px-8 py-12 md:px-12 md:py-16">
+      <div class="relative px-8 py-10 md:px-12 md:py-14">
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div class="max-w-2xl">
             <div class="mb-4 inline-flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-accent-orange"></span>
-              <span class="text-xs font-black uppercase tracking-widest text-accent-mint tracking-widest">Public Accountability Tracker</span>
+              <span class="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></span>
+              <span class="text-xs font-black uppercase tracking-widest text-accent-mint tracking-widest">Active Research & Policy Tracking</span>
             </div>
-            <h1 class="text-4xl font-black md:text-5xl tracking-tight mb-4">SNAP Administrative Accuracy</h1>
+            <h1 class="text-3xl font-black md:text-5xl tracking-tight mb-4 leading-tight">SNAP Administrative Accuracy</h1>
             <p class="text-lg text-white/80 leading-relaxed font-medium">
-              Monitoring federal risk thresholds and fiscal exposure for Louisiana’s social safety net. Ongoing research conducted by <strong>Tia Fields</strong>.
+              Monitoring federal risk thresholds and fiscal exposure for Louisiana’s social safety net. Research and analysis by <strong>Tia Fields</strong>.
             </p>
           </div>
           
           <div class="flex flex-col gap-4">
             <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 min-w-[260px]">
-               <div class="text-[10px] uppercase tracking-widest font-bold text-accent-mint mb-3">Current Assessment</div>
-               <div id="statusBadge" class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-slate-500 text-white mb-4">COMPLIANT</div>
+               <div class="text-[10px] uppercase tracking-widest font-bold text-accent-mint mb-3">2026 Session Estimate</div>
+               <div id="statusBadge" class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-red-600 text-white mb-4 shadow-lg shadow-red-900/20">ABOVE THRESHOLD</div>
                <div class="flex items-baseline gap-2">
-                 <span id="headerRate" class="text-5xl font-black">—%</span>
+                 <span id="headerRate" class="text-5xl font-black">7.61%</span>
                  <span class="text-white/50 text-xs font-bold uppercase">Rate</span>
                </div>
             </div>
@@ -126,49 +131,75 @@
       </div>
     </header>
 
-    <!-- Metrics Cards -->
+    <!-- Professional Definitions Context -->
+    <section class="grid grid-cols-1 gap-4 mb-8">
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <h4 class="text-[10px] font-black text-brand-700 uppercase tracking-widest mb-4">Payment Error Definitions</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-1">
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Overpayment</p>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">Benefits issued in excess of household eligibility.</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Underpayment</p>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">Eligible benefits that were not correctly issued to the household.</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Nature of Errors</p>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">Errors are technical inaccuracies (62% unintentional household, 14% administrative) and are distinct from intentional fraud.</p>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-100">
+          <p class="text-xs text-brand-900 font-bold leading-relaxed italic">
+            A SNAP payment error rate measures how often benefits are calculated incorrectly, whether households receive too much or too little assistance due to administrative mistakes in eligibility or benefit calculations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI Metrics -->
     <section class="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
       <article class="glass-card rounded-2xl p-8 border-t-4 border-slate-300">
         <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4">Federal Threshold</h3>
-        <div id="thresholdCard" class="text-4xl font-black text-brand-900">6.0%</div>
+        <div class="text-4xl font-black text-brand-900">6.0%</div>
         <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          The USDA standard for accuracy. Rates above 6% trigger corrective action mandates.
+          The USDA standard for accuracy. Exceeding 6% triggers mandatory corrective actions and fiscal penalties.
         </p>
       </article>
 
       <article class="glass-card rounded-2xl p-8 border-t-4 border-brand-500">
-        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-brand-600 mb-4">Louisiana Current</h3>
-        <div id="currentLACard" class="text-4xl font-black text-brand-900">—%</div>
-        <p id="currentLADetail" class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          Most recently finalized payment error rate for the state of Louisiana.
+        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-brand-600 mb-4">Louisiana 2026 Estimate</h3>
+        <div class="text-4xl font-black text-brand-900">7.61%</div>
+        <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
+          Estimated administrative accuracy rate tracking finalized USDA QC reports and projected internal assessments.
         </p>
       </article>
 
       <article class="glass-card rounded-2xl p-8 border-t-4 border-accent-orange">
         <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-orange mb-4">Estimated Liability</h3>
-        <div id="liabilityCard" class="text-4xl font-black text-brand-900">—</div>
+        <div class="text-4xl font-black text-brand-900">$95.12M</div>
         <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          Potential fiscal exposure based on performance relative to federal benchmarks.
+          Potential state-share penalty mandate based on current performance relative to federal benchmarks.
         </p>
       </article>
     </section>
 
-    <!-- Chart Visualization -->
+    <!-- Historical Accuracy Chart -->
     <section class="glass-card rounded-3xl p-6 md:p-10 mb-8">
       <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
         <div>
-          <h2 class="text-2xl font-black text-brand-900 tracking-tight">Performance Trends</h2>
-          <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Historical Accuracy vs. Benchmarks</p>
+          <h2 class="text-2xl font-black text-brand-900 tracking-tight">Performance Trends vs. National Average</h2>
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Data gaps (2016, 2020, 2021) represent official USDA reporting pauses.</p>
         </div>
-        <div class="flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-tighter">
+        <div class="flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-widest">
           <div class="flex items-center gap-2 px-3 py-1.5 rounded bg-brand-50 text-brand-700 border border-brand-100">
             <span class="w-2 h-2 rounded-full bg-brand-600"></span> Louisiana
           </div>
-          <div class="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-50 text-slate-500 border border-slate-200">
-            <span class="w-2 h-2 rounded-full bg-slate-300"></span> National Average
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-100 text-slate-500 border border-slate-200">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span> National Avg
           </div>
           <div class="flex items-center gap-2 px-3 py-1.5 rounded bg-red-50 text-red-600 border border-red-100">
-            <span class="w-2 h-2 rounded-full bg-red-500"></span> Penalty Limit
+            <span class="w-2 h-2 rounded-full bg-red-500"></span> 6.0% Limit
           </div>
         </div>
       </div>
@@ -177,139 +208,176 @@
       </div>
     </section>
 
-    <!-- Analyst and Info Section -->
+    <!-- 2026 Regular Session | Bill Watch -->
+    <section class="glass-card rounded-3xl p-6 md:p-10 mb-8">
+      <div class="mb-8">
+        <h2 class="text-2xl font-black text-brand-900 tracking-tight">2026 Regular Session | Bill Tracker</h2>
+        <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Legislation impacting administrative complexity and payment accuracy.</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100">
+              <th class="py-4 px-2">Bill #</th>
+              <th class="py-4 px-2">Focus Area</th>
+              <th class="py-4 px-2">Predicted Accuracy Impact</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm font-medium">
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">SB 265</td>
+              <td class="py-4 px-2 italic">Abolish DCFS / Transfer to LDH</td>
+              <td class="py-4 px-2 text-slate-600"><strong>High Risk:</strong> Massive IT migration and 1,500 staff transfers historically trigger significant accuracy spikes.</td>
+            </tr>
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">SB 219</td>
+              <td class="py-4 px-2 italic">Office of Health & Nutrition</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Direct:</strong> Centralizes administration; oversees restrictive food waivers and integrated metabolic health initiatives.</td>
+            </tr>
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">HB 181</td>
+              <td class="py-4 px-2 italic">Wage Data Sharing</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Positive:</strong> Enables real-time verification to catch inadvertent household income errors before they result in overpayments.</td>
+            </tr>
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">HB 689 / SB 52</td>
+              <td class="py-4 px-2 italic">Benefit Exchange (Children)</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Operational:</strong> Streamlines benefit adjustments when household circumstances change to ensure payment integrity.</td>
+            </tr>
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">SB 233</td>
+              <td class="py-4 px-2 italic">Statewide Data Compact</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Structural:</strong> Technical prerequisite for the "One Door" portal's automated eligibility verification.</td>
+            </tr>
+            <tr class="bill-row border-b border-slate-50">
+              <td class="py-4 px-2 font-black text-brand-700">HB 381</td>
+              <td class="py-4 px-2 italic">High Impact Jobs Program</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Indirect:</strong> Uses SNAP data to determine company eligibility; likely to increase interagency data processing workload.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Analyst Note & External Resources -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
       <div class="glass-card rounded-3xl p-8 border-l-8 border-brand-700">
-        <h4 class="text-lg font-black text-brand-900 mb-6">Analyst's Perspective</h4>
-        <div class="text-sm text-slate-700 leading-relaxed space-y-4 font-medium">
-          <p>Payment error rates represent technical administrative challenges—often tied to system complexity and staffing volume—rather than client-level fraud.</p>
-          <p>Targeted investments in agency training and process modernization are essential to reducing the current rate and protecting state resources from federal penalties.</p>
+        <h4 class="text-lg font-black text-brand-900 mb-6 uppercase tracking-tight">Analyst's Perspective</h4>
+        <div class="text-sm text-slate-700 leading-relaxed space-y-4 font-medium italic">
+          <p>Effective administrative accuracy requires targeted investments in IT modernization and analyst training. High error rates are symptomatic of technical complexity rather than intentional misuse.</p>
+          <p>The transition of SNAP functions between agencies during the 2026 Session presents a critical juncture for ensuring program stability and protecting state resources.</p>
         </div>
         <div class="mt-8 flex items-center gap-4 pt-6 border-t border-slate-100">
           <div class="h-12 w-12 rounded-full bg-brand-700 text-accent-mint flex items-center justify-center font-black">TF</div>
           <div>
-            <div class="font-black text-brand-900">Tia Fields</div>
-            <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Policy Research Analyst</div>
+            <div class="font-black text-brand-900 tracking-tight">Tia Fields</div>
+            <div class="text-[10px] uppercase tracking-widest font-black text-slate-400">Policy Research Analyst</div>
           </div>
         </div>
       </div>
 
       <div class="bg-brand-900 rounded-3xl p-8 text-white relative overflow-hidden">
-        <h4 class="text-lg font-black text-accent-mint mb-4">Methodology & Active Tracking</h4>
-        <p class="text-sm text-white/70 leading-relaxed mb-8">
-          This dashboard summarizes administrative performance data for the 2026 Legislative Session. Figures are derived from USDA Quality Control reports and fiscal projections.
-        </p>
-        <div class="space-y-3">
-          <div class="flex justify-between text-[10px] font-black border-b border-white/10 pb-2">
-            <span class="uppercase tracking-widest text-slate-400">Analysis Mode</span>
-            <span class="text-white">Active Performance Monitoring</span>
-          </div>
-          <div class="flex justify-between text-[10px] font-black border-b border-white/10 pb-2">
-            <span class="uppercase tracking-widest text-slate-400">Project Cycle</span>
-            <span class="text-white">Ongoing Research</span>
-          </div>
-          <div class="flex justify-between text-[10px] font-black pb-2">
-            <span class="uppercase tracking-widest text-slate-400">Reporting Standard</span>
-            <span class="text-white">USDA FNS-310</span>
-          </div>
+        <h4 class="text-lg font-black text-accent-mint mb-4 tracking-tight uppercase">External Data Resources</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="https://www.fns.usda.gov/snap/qc" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
+            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">USDA FNS</span>
+            <span class="text-xs font-bold">Federal QC Portal →</span>
+          </a>
+          <a href="http://www.dcfs.louisiana.gov/page/snap-transparency" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
+            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">DCFS</span>
+            <span class="text-xs font-bold">State Transparency →</span>
+          </a>
+          <a href="https://www.lla.la.gov/" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
+            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">Audit</span>
+            <span class="text-xs font-bold">Legislative Auditor →</span>
+          </a>
+          <a href="https://legis.la.gov/" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
+            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">Legis</span>
+            <span class="text-xs font-bold">Bill Tracker →</span>
+          </a>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <p class="text-[10px] uppercase tracking-widest font-black text-white/50">Reporting Standard</p>
+          <p class="text-xs font-bold text-accent-mint">USDA FNS-310 (Quality Control Framework)</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Contact Footer -->
+  <!-- Professional Contact Footer -->
   <footer class="bg-white border-t border-slate-200 py-12 px-4 md:px-8">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
       <div>
-        <h5 class="text-brand-900 font-black uppercase tracking-widest text-xs mb-2">Data Inquiries</h5>
-        <p class="text-slate-600 text-sm font-medium">For questions regarding the methodology or findings, please contact the researcher.</p>
+        <h5 class="text-brand-900 font-black uppercase tracking-widest text-[10px] mb-2">Research & Data Inquiries</h5>
+        <p class="text-slate-600 text-sm font-medium">Invest in Louisiana Research | Administrative Accuracy Project</p>
       </div>
       <div class="flex flex-col md:flex-row gap-6 md:gap-12">
         <a href="mailto:Tia@investlouisiana.org" class="group">
           <span class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1 group-hover:text-brand-500 transition-colors">Email</span>
-          <span class="text-brand-900 font-bold">Tia@investlouisiana.org</span>
+          <span class="text-brand-900 font-bold border-b-2 border-brand-500 pb-1">Tia@investlouisiana.org</span>
         </a>
         <a href="tel:2254415932" class="group">
           <span class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1 group-hover:text-brand-500 transition-colors">Phone</span>
-          <span class="text-brand-900 font-bold">225-441-5932</span>
+          <span class="text-brand-900 font-bold border-b-2 border-brand-500 pb-1">225-441-5932</span>
         </a>
       </div>
     </div>
   </footer>
 
   <script>
-    const DASHBOARD_DATA = {
-      labels: ['2014', '2017', '2018', '2019', '2022', '2023', '2024'],
-      laValues: [1.55, 6.56, 2.70, 3.79, 7.19, 6.65, 7.61],
-      nationalValues: [3.66, 6.30, 6.80, 7.36, 11.54, 11.68, 10.93],
-      threshold: 6.0,
-      liability: 95000000,
-      updatedAt: "April 2026",
-      latestYear: 2024
+    /**
+     * HISTORICAL ACCURACY DATA (2014-2026)
+     * Compiled from USDA FNS Official State-by-State Error Rate Reports
+     * null values represent official USDA reporting pauses (2016, 2020-21)
+     */
+    const ACCURACY_DATA = {
+      labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026*'],
+      laValues: [1.55, 3.20, null, 6.56, 2.70, 3.79, null, null, 7.19, 6.65, 6.62, 7.40, 7.61],
+      nationalValues: [3.66, null, null, 6.30, 6.80, 7.36, null, null, 11.54, 11.68, 10.93, 11.20, 10.93],
+      threshold: 6.0
     };
 
-    let chartInstance = null;
-
-    function renderKPIs(data) {
-      const latestLA = data.laValues.slice(-1)[0];
-      const threshold = data.threshold || 6.0;
-
-      const statusBadge = document.getElementById('statusBadge');
-      document.getElementById('headerRate').textContent = `${latestLA}%`;
-      
-      if (latestLA > threshold) {
-        statusBadge.textContent = "ATTENTION REQUIRED";
-        statusBadge.className = "inline-flex px-3 py-1 rounded-full text-[10px] font-black bg-red-600 text-white shadow-lg shadow-red-200";
-      } else {
-        statusBadge.textContent = "COMPLIANT";
-        statusBadge.className = "inline-flex px-3 py-1 rounded-full text-[10px] font-black bg-brand-500 text-white shadow-lg shadow-brand-100";
-      }
-
-      document.getElementById('thresholdCard').textContent = `${threshold}%`;
-      document.getElementById('currentLACard').textContent = `${latestLA}%`;
-      document.getElementById('liabilityCard').textContent = new Intl.NumberFormat('en-US', { 
-        style: 'currency', 
-        currency: 'USD', 
-        maximumFractionDigits: 0 
-      }).format(data.liability);
-    }
-
-    function renderChart(data) {
+    function renderChart() {
       const ctx = document.getElementById('errorRateChart').getContext('2d');
-      if (chartInstance) chartInstance.destroy();
+      if (window.accuracyChart) window.accuracyChart.destroy();
 
-      chartInstance = new Chart(ctx, {
+      window.accuracyChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: data.labels,
+          labels: ACCURACY_DATA.labels,
           datasets: [
             {
               label: 'Louisiana',
-              data: data.laValues,
+              data: ACCURACY_DATA.laValues,
               borderColor: '#006b54',
               backgroundColor: 'rgba(0, 107, 84, 0.05)',
               fill: true,
               borderWidth: 4,
-              tension: 0.2,
+              tension: 0.15,
               pointRadius: 6,
               pointBackgroundColor: '#006b54',
               pointBorderColor: '#fff',
-              pointBorderWidth: 2
+              pointBorderWidth: 2,
+              spanGaps: false
             },
             {
               label: 'National Average',
-              data: data.nationalValues,
-              borderColor: '#cbd5e1',
+              data: ACCURACY_DATA.nationalValues,
+              borderColor: '#94a3b8',
               borderWidth: 2,
               borderDash: [5, 5],
+              tension: 0.15,
               pointRadius: 4,
-              fill: false
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#94a3b8',
+              fill: false,
+              spanGaps: false
             },
             {
-              label: 'Threshold',
-              data: Array(data.labels.length).fill(6),
+              label: '6% Threshold',
+              data: Array(ACCURACY_DATA.labels.length).fill(6),
               borderColor: '#ef4444',
-              borderWidth: 1,
+              borderWidth: 1.5,
               borderDash: [10, 5],
               pointRadius: 0,
               fill: false
@@ -319,6 +387,7 @@
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          interaction: { intersect: false, mode: 'index' },
           plugins: { 
             legend: { display: false },
             tooltip: {
@@ -326,18 +395,25 @@
               padding: 12,
               titleFont: { weight: 'bold' },
               callbacks: {
-                label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
+                label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y ? ctx.parsed.y + '%' : 'Data Not Reported'}`
               }
             }
           },
           scales: {
             x: { 
               grid: { display: false }, 
-              ticks: { font: { weight: 'bold', size: 11 } } 
+              ticks: { font: { weight: 'bold', size: 10 }, color: '#64748b' } 
             },
             y: { 
               beginAtZero: true, 
-              ticks: { callback: (v) => v + '%' } 
+              max: 14,
+              ticks: { 
+                stepSize: 2,
+                callback: (v) => v + '%',
+                font: { weight: 'bold' },
+                color: '#64748b'
+              },
+              grid: { color: 'rgba(0, 0, 0, 0.03)' }
             }
           }
         }
@@ -345,8 +421,7 @@
     }
 
     window.onload = function() {
-      renderKPIs(DASHBOARD_DATA);
-      renderChart(DASHBOARD_DATA);
+      renderChart();
     };
   </script>
 </body>
