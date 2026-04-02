@@ -43,8 +43,12 @@
     <!-- Navigation -->
     <nav class="flex items-center justify-between mb-8 py-4 border-b border-slate-200">
       <div class="flex items-center gap-4">
-        <div class="font-black text-2xl tracking-tighter text-brand-900 uppercase">
-          Invest <span class="text-accent-orange">In</span> Louisiana
+        <!-- Logo Container -->
+        <div class="h-16 w-auto flex items-center justify-center overflow-hidden">
+          <img src="IIL-Logo-Secondary-FullColor-SM.png" alt="Invest in Louisiana Logo" class="h-full object-contain" onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');" />
+          <div id="text-logo" class="hidden font-black text-2xl tracking-tighter text-brand-900 uppercase">
+            Invest <span class="text-accent-orange">In</span> Louisiana
+          </div>
         </div>
       </div>
       <div class="text-right">
@@ -103,7 +107,7 @@
           </div>
           <div class="space-y-1">
             <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider font-bold">Nature of Errors</p>
-            <p class="text-xs text-slate-600 leading-relaxed font-medium italic">Administrative Errors are technical inaccuracies resulting from complex procedural requirements and communication gaps, distinct from intentional fraud. High procedural closure rates directly inflate these figures during federal audits.</p>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium italic">Administrative Errors are <strong>technical inaccuracies</strong> resulting from complex procedural requirements. When households lose help due to red tape (Procedural Closures), federal audits often classify these gaps as <strong>Admin Errors</strong>, directly inflating the state's error rate regardless of the household's actual eligibility.</p>
           </div>
         </div>
         <div class="mt-4 pt-4 border-t border-slate-100">
@@ -164,12 +168,12 @@
       </div>
     </section>
 
-    <!-- Strategic Correlation Insight (Updated Title & Emphasis Statement) -->
+    <!-- Strategic Correlation Insight (Updated Wording and Improved Emphasis) -->
     <div class="bg-brand-900 text-white rounded-2xl p-8 mb-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-accent-orange">
       <div class="flex-grow">
         <h4 class="text-accent-mint font-black text-xs tracking-widest mb-3 uppercase">Fiscal Impact of Administrative Friction</h4>
         <p class="text-sm leading-relaxed opacity-95">
-          State data show that when <strong class="text-accent-mint">Procedural Closures reach 82.2 percent</strong>, many households lose benefits because of <strong class="text-accent-mint">paperwork barriers and administrative processes</strong> rather than a true loss of eligibility. When federal Quality Control auditors review these cases, they are often classified as <strong class="text-accent-orange">Administrative Errors</strong>. This <strong class="text-accent-orange font-black">administrative failure, not fraud</strong>, contributes to Louisiana’s <strong class="text-red-400 font-black">7.61 percent SNAP error rate</strong>, exceeding the <strong class="text-red-400">federal 6 percent threshold</strong> and exposing the state to an estimated <strong class="text-white bg-red-800 px-1 rounded">95.1 million dollar liability</strong> under the Fiscal Responsibility Act (H.R. 1).
+          State data show that when <strong class="text-accent-mint">Procedural Closures reach 82.2 percent</strong>, many households lose benefits because of <strong class="text-accent-mint font-black">paperwork barriers and administrative processes</strong> rather than a true loss of eligibility. When federal Quality Control auditors review these cases, they are often classified as <strong class="text-accent-orange font-black">Administrative Errors</strong>. This <strong class="text-accent-orange font-black underline decoration-2">administrative failure, not fraud</strong>, contributes to Louisiana’s <strong class="text-red-400 font-black">7.61 percent SNAP error rate</strong>, exceeding the federal <strong class="text-red-400 font-black">6 percent threshold</strong> and exposing the state to an estimated <strong class="text-white bg-red-700 px-2 py-0.5 rounded-sm font-black">95.1 million dollar liability</strong> under the Fiscal Responsibility Act (H.R. 1).
         </p>
       </div>
       <div class="w-full md:w-auto flex flex-col items-center bg-white/10 p-6 rounded-2xl border border-white/10">
